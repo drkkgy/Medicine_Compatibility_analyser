@@ -14,7 +14,7 @@ router.get('/test', function(req,res,next){
 router.post('/upload_user_history', (req,res,next)=>{
 
 
-	MongoClient.connect('mongodb://localhost:27017/User_History_Upload', (err,db)=> {
+	MongoClient.connect('mongodb+srv://drkkgy:1234567890@cluster0-m00py.mongodb.net/User_History_Upload', (err,db)=> {
 
     assert.equal(null,err);
     console.log("Sucessfully connected to the mongodb client");

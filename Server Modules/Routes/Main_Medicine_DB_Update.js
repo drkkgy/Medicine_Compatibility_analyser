@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient,assert = require('assert');
 
+
 //Connecting to the mongodb and setting it up
 
 
@@ -22,7 +23,8 @@ router.post('/uploading',(req,res,next)=>{
 
 // connecting and sending data to mongo db
 
-MongoClient.connect('mongodb://localhost:27017/Medicine_Database', (err,db)=> {
+
+MongoClient.connect('mongodb+srv://drkkgy1995:Devanki1#$%@cluster0-m00py.mongodb.net/Medicine_Database', (err,db)=> {
 
     assert.equal(null,err);
     console.log("Sucessfully connected to the mongodb client");
@@ -43,6 +45,7 @@ MongoClient.connect('mongodb://localhost:27017/Medicine_Database', (err,db)=> {
   // process result
   res.json({"message": "Data uploaded sucessfully"});
 })
+
 
 });
 
