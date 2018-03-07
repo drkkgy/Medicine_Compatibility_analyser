@@ -27,17 +27,23 @@ MongoClient.connect('mongodb://localhost:27017/Medicine_Database', (err,db)=> {
     assert.equal(null,err);
     console.log("Sucessfully connected to the mongodb client");
     // sending the information
-  db.collection('Cardiovascular_System').update(
-  { Beta_Blockers: "Propranlol"},
-  { $set: { bose: 44 },
-     $currentDate: { lastModified: true }},
-     {upsert: true}
-     )
+  db.collection(req.body.Type).insertOne({
+  "Medicine_Name": req.body.Medicine_Name,
+  "Sub_Type": req.body.Sub_Type,
+  "dosage_weight": req.body.dosage_weight,
+  "dosage_Age": req.body.dosage_Age,
+  "Composition": req.body.Composition,
+  "Precaution_Pregencancy":req.body.Precaution_Pregencancy,
+  "Precaution_Pre_Deisease": req.body.Precaution_Pre_Deisease,
+  "Side_Effects": req.body.Side_Effects,
+  "Contra_Indication": req.body.Contra_Indication,
+  "Diseases_Treated": req.body.Diseases_Treated
+})
 .then(function(result) {
   // process result
-  res.send(result);
-})            
-    
+  res.json({"message": "Data uploaded sucessfully"});
+})
+
 });
 
 
