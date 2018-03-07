@@ -3,7 +3,6 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var router = express.Router();
-var router = express.Router();
 var MongoClient = require('mongodb').MongoClient,assert = require('assert');
 
 
@@ -25,6 +24,9 @@ router.post('/upload_user_details', (req,res,next)=>{
   "name": req.body.name,
   "gender": req.body.gender,
   "dob": req.body.dob,
+  "age": req.body.age,
+  "heght": req.body.heght,
+  "weight":req.body.weight,
   "email": req.body.email,
   "phoneNo": req.body.phoneNo,
   "address": req.body.address,

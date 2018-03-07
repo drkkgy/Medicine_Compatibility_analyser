@@ -28,7 +28,6 @@ app.use('/User_History_Upload',require('./Routes/User_History_Upload'));
 
 app.use('/User_Report_Upload',require('./Routes/User_Report_Upload'));
 
-app.use('/Present_Medicine_Upload',require('./Routes/Present_Medicine_Upload'));
 
 app.use('/ML_Analysis',require('./Routes/ML_Analysis'));
 
