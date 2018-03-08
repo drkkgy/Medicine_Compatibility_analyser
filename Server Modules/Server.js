@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var port  = 3000;
 // Databse connectivity with MongoDB
 
-mongoose.connect('mongodb+srv://drkkgy1995:Devanki1#$%@cluster0-m00py.mongodb.net/Medicine_Database');
+mongoose.connect('mongodb://ankit:1234567890@ds012198.mlab.com:12198/medicine_database');
 
 //Express setup
 
