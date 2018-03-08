@@ -8,6 +8,7 @@ https://api.illiteracy22.hasura-app.io/User_Personal_Details/upload_user_details
 sample request
 
 {
+  "User_Name": "ankit",
   "name": "Yash Jain",
   "gender": "male",
   "dob": 19980922,
@@ -19,11 +20,15 @@ sample request
   "address": "1/1010,Street No.3,Shahdara",
   "state": "delhi",
   "pinCode": 110032
+
+----------------------To recieve personal data-------------------------------------------------------------------
+https://api.illiteracy22.hasura-app.io/User_Personal_Details/download_user_details/[user name here]
 ----------------------------------------------To Update the user history in DB---------------------------------------------------------
 https://api.illiteracy22.hasura-app.io/User_History_Upload/upload_user_history
 sample request
 
 {
+  "User_Name": "ankit",
   "Allergens":  ["pollen","dust"],
   "Resistance": ["penincilin","cyclofloxacine"],
   "Pregnancy": false,
@@ -33,6 +38,9 @@ sample request
   "other": ["hemophilia","arthritist"],
   "geneticDisease": ["sickel cell anemia","asthama"]
 }
+------------------------To recieve hiastory data--------------------------
+
+https://api.illiteracy22.hasura-app.io/User_History_Upload/download_user_history/[User_name]
 --------------------------------------------------To update the medicine database---------------------------------------------------------
 https://api.illiteracy22.hasura-app.io/Main_Medicine_DB_Update/uploading
 
@@ -84,6 +92,11 @@ sample request
 
 }
 
+
+-----------------------------------------------to download images---------------------------------------
+https://api.illiteracy22.hasura-app.io/User_Report_Upload/download/[User_Name]
+
+Note****(Here the file name created using PaitentName" and call it back using the User_Name)
 -----------------------------------------------------------------------------------------------------------
 
 **************Use Postman to test responses*****************
