@@ -91,3 +91,9 @@ sample request
 format 
 
 {"message":"you message here"}
+----------------------------------------API Status Checking Commands from browser--------------------------------------------
+API-1---> https://api.illiteracy22.hasura-app.io/User_Personal_Details/test
+API-2---> https://api.illiteracy22.hasura-app.io/User_History_Upload/test
+API-3---> https://api.illiteracy22.hasura-app.io/User_Report_Upload/test
+API-4---> https://api.illiteracy22.hasura-app.io/ML_Analysis/test
+API-5---> https://api.illiteracy22.hasura-app.io/Main_Medicine_DB_Update/test
