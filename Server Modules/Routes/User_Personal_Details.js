@@ -15,7 +15,7 @@ router.get('/test', function(req,res,next){
 router.post('/upload_user_details', (req,res,next)=>{
 
 
-	MongoClient.connect('mongodb+srv://drkkgy:1234567890@cluster0-m00py.mongodb.net/User_Personal_Details', (err,db)=> {
+	MongoClient.connect('mongodb://ankit:1234567890@ds012198.mlab.com:12198/user_personal_details', (err,db)=> {
 
     assert.equal(null,err);
     console.log("Sucessfully connected to the mongodb client");

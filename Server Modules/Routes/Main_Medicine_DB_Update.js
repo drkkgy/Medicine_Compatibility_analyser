@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient,assert = require('assert');
-
+var arr = ["null","Alimentary_System","Antibiotics","Cardiovascular_System","Central_Nervous_System","Eye","Genito-Urinary_Tract","Hormones","Metabolism","Musculo-Skeletal_Disorder","Nutrition","Oropharyngeal","Respiratory_System_and_Anti-Allergics","Skin","Surgical_and_Vaccines"];
 
 //Connecting to the mongodb and setting it up
 
@@ -24,12 +24,12 @@ router.post('/uploading',(req,res,next)=>{
 // connecting and sending data to mongo db
 
 
-MongoClient.connect('mongodb+srv://drkkgy1995:Devanki1#$%@cluster0-m00py.mongodb.net/Medicine_Database', (err,db)=> {
+MongoClient.connect('mongodb://ankit:1234567890@ds012198.mlab.com:12198/medicine_database', (err,db)=> {
 
     assert.equal(null,err);
     console.log("Sucessfully connected to the mongodb client");
     // sending the information
-  db.collection(req.body.Type).insertOne({
+  db.collection(arr[req.body.Type]).insertOne({
   "Medicine_Name": req.body.Medicine_Name,
   "Sub_Type": req.body.Sub_Type,
   "dosage_weight": req.body.dosage_weight,
