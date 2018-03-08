@@ -20,6 +20,7 @@ router.post('/upload_user_history', (req,res,next)=>{
     console.log("Sucessfully connected to the mongodb client");
     // sending the information
   db.collection('User_History').insertOne({
+  "User_Name": req.body.User_Name,	
   "Allergens":  req.body.Allergens,
   "Resistance": req.body.Resistance,
   "Pregnancy": req.body.Pregnancy,
@@ -37,6 +38,26 @@ router.post('/upload_user_history', (req,res,next)=>{
 });
 
 
+
+});
+
+// Sending the data back to front end
+
+router.get('/download_user_history/:User_Name',(req,res,next)=>{
+	MongoClient.connect('mongodb://ankit:1234567890@ds012198.mlab.com:12198/user_history_upload', (err,db)=> {
+
+    assert.equal(null,err);
+    console.log("Sucessfully connected to the mongodb client");
+    // sending the information
+  db.collection('User_History').findOne({"User_Name": req.params.User_Name}
+  
+)
+.then(function(result) {
+  // process result
+  res.json(result);
+})
+    
+});
 
 });
 

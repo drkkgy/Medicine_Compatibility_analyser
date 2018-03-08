@@ -4,6 +4,8 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var MongoClient = require('mongodb').MongoClient,assert = require('assert');
+var fs = require('fs');
 
 
 // Creating local storage 
@@ -60,7 +62,7 @@ router.post('/upload',(req, res,next)=> {
   	// Writing the file
   	var writestream = gfs.createWriteStream({
      // File name in mongodb
-     filename: JSON.stringify(req.body.PatientName + Date.now())//<---------------------------------------------------------------------------change
+     filename: JSON.stringify(req.body.PatientName)//<---------------------------------------------------------------------------change
     
   	});
   	// Creating the read Stream from where the video is (videopath)
@@ -73,6 +75,45 @@ router.post('/upload',(req, res,next)=> {
   });
  });
 
+
+//-------------------------------------------
+
+router.get('/download/:User_Name',(req,res,next) =>{
+
+var Grid = require('gridfs-stream');
+var mongoose = require("mongoose");
+Grid.mongo = mongoose.mongo;
+var gfs = new Grid(mongoose.connection.db);
+
+
+gfs.files.find({ "filename": req.params.User_Name }).toArray(function (err, files) {
+
+    if(files.length===0){
+        return res.status(400).send({
+            message: 'File not found'
+        });
+    }
+
+    res.writeHead(200, {'Content-Type': files[0].contentType});
+
+    var readstream = gfs.createReadStream({
+          filename: files[0].filename
+    });
+
+    readstream.on('data', function(chunk) {
+        res.write(chunk);
+    });
+
+    readstream.on('end', function() {
+        res.end();        
+    });
+
+    readstream.on('error', function (err) {
+      console.log('An error occurred!', err);
+      throw err;
+    });
+  });
+});
 
 
 

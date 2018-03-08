@@ -21,6 +21,7 @@ router.post('/upload_user_details', (req,res,next)=>{
     console.log("Sucessfully connected to the mongodb client");
     // sending the information
   db.collection('User_Details').insertOne({
+  "User_Name": req.body.User_Name, 
   "name": req.body.name,
   "gender": req.body.gender,
   "dob": req.body.dob,
@@ -44,6 +45,24 @@ router.post('/upload_user_details', (req,res,next)=>{
 
 });
 
+router.get('/download_user_details/:User_Name', (req,res,next)=>{
+
+ MongoClient.connect('mongodb://ankit:1234567890@ds012198.mlab.com:12198/user_personal_details', (err,db)=> {
+
+    assert.equal(null,err);
+    console.log("Sucessfully connected to the mongodb client");
+    // sending the information
+  db.collection('User_Details').findOne({"User_Name": req.params.User_Name}
+  
+)
+.then(function(result) {
+  // process result
+  res.json(result);
+})
+    
+});
+
+})
 
 
 
