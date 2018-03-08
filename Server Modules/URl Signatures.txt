@@ -1,0 +1,93 @@
+Hello Everyone
+
+Welcome to the Backend Url Signature Guid for the Medicne tracking systme
+
+-------------------------------------------------To Update the user personal details----------------------------------------------------------
+https://api.illiteracy22.hasura-app.io/User_Personal_Details/upload_user_details
+
+sample request
+
+{
+  "name": "Yash Jain",
+  "gender": "male",
+  "dob": 19980922,
+  "age":  21,
+  "heght": 170,
+  "weight":50,
+  "email": "me.yashjn@gmail.com",
+  "phoneNo": 9953123857,
+  "address": "1/1010,Street No.3,Shahdara",
+  "state": "delhi",
+  "pinCode": 110032
+----------------------------------------------To Update the user history in DB---------------------------------------------------------
+https://api.illiteracy22.hasura-app.io/User_History_Upload/upload_user_history
+sample request
+
+{
+  "Allergens":  ["pollen","dust"],
+  "Resistance": ["penincilin","cyclofloxacine"],
+  "Pregnancy": false,
+  "diabetes": false,
+  "highBloodPressure": false,
+  "highCholesterol": false,
+  "other": ["hemophilia","arthritist"],
+  "geneticDisease": ["sickel cell anemia","asthama"]
+}
+--------------------------------------------------To update the medicine database---------------------------------------------------------
+https://api.illiteracy22.hasura-app.io/Main_Medicine_DB_Update/uploading
+
+
+sample request
+{
+  "Type": 3,	
+  "Medicine_Name": "Betalock",
+  "Sub_Type": "Beta Blockers",
+  "dosage_weight": ["25mg-BD"],
+  "dosage_Age": [">18"],
+  "Composition": ["METOPROLOL"],
+  "Precaution_Pregencancy":true,
+  "Precaution_Pre_Deisease": ["asthama"],
+  "Side_Effects": ["suffocation"],
+  "Contra_Indication": ["Hert rate <50"],
+  "Diseases_Treated": ["Heart rate controll","Hypertension control","Angina"]
+}
+
+**************IMP*************
+here the "Type" variable is hardcoded medicne type so based on user response convert them to the code as follows to prevent DB Errors
+
+0-"null"
+1-"Alimentary_System"
+2-"Antibiotics"
+3-"Cardiovascular_System"
+4-"Central_Nervous_System"
+5-"Eye"
+6-"Genito-Urinary_Tract"
+7-"Hormones"
+8-"Metabolism"
+9-"Musculo-Skeletal_Disorder"
+10-"Nutrition"
+11-"Oropharyngeal"
+12-"Respiratory_System_and_Anti-Allergics"
+13-"Skin"
+14-"Surgical_and_Vaccines"
+*********Note******
+index starts from 0
+
+---------------------------------------------------------Report_Upload--------------------------------------------------
+https://api.illiteracy22.hasura-app.io/User_Report_Upload/upload
+
+sample request
+{
+	"PatientName":"Yash",
+	
+"FilePath":"C:/Users/drkkg/Desktop/imagine cup project/Medicine_Compatibility_analyser/Server Modules/Routes/readFrom/200Back.png"
+
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+**************Use Postman to test responses*****************
+
+format 
+
+{"message":"you message here"}
