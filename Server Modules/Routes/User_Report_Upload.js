@@ -44,6 +44,9 @@ router.get('/test', function(req,res,next){
 
 router.post('/upload',(req, res,next)=> {
  // establish a connection
+ var nPromise = new Promise(function(resolve, err){
+   
+
   mongoose.connect('mongodb://ankit:1234567890@ds012188.mlab.com:12188/user_report_upload');
   var conn = mongoose.connection;
   var path = require('path');
@@ -72,7 +75,15 @@ router.post('/upload',(req, res,next)=> {
   		console.log(file.filename + ' Written To DB');
   		res.json({"message":"File Uploaded sucessfully"})
   	});
+
+    writestream.on('error', function (err) {
+      console.log('An error occurred!', err);
+      throw err;
+      res.json({"message":"cannot get the file"});
+    });
   });
+
+});
  });
 
 
@@ -111,6 +122,7 @@ gfs.files.find({ "filename": req.params.User_Name }).toArray(function (err, file
     readstream.on('error', function (err) {
       console.log('An error occurred!', err);
       throw err;
+      res.json({"message":"cannot get the file"});
     });
   });
 });

@@ -42,7 +42,7 @@ sample request
 
 https://api.illiteracy22.hasura-app.io/User_History_Upload/download_user_history/[User_name]
 --------------------------------------------------To update the medicine database---------------------------------------------------------
-https://api.illiteracy22.hasura-app.io/Main_Medicine_DB_Update/uploading
+---->https://api.illiteracy22.hasura-app.io/Main_Medicine_DB_Update/uploading<-----
 
 
 sample request
@@ -88,7 +88,7 @@ sample request
 {
 	"PatientName":"Yash",
 	
-"FilePath":"C:/Users/drkkg/Desktop/imagine cup project/Medicine_Compatibility_analyser/Server Modules/Routes/readFrom/200Back.png"
+        "FilePath":"C:/Users/drkkg/Desktop/imagine cup project/Medicine_Compatibility_analyser/Server Modules/Routes/readFrom/200Back.png"
 
 }
 
@@ -97,7 +97,31 @@ sample request
 https://api.illiteracy22.hasura-app.io/User_Report_Upload/download/[User_Name]
 
 Note****(Here the file name created using PaitentName" and call it back using the User_Name)
------------------------------------------------------------------------------------------------------------
+---------------------------------------------Evaluation api(Hardwired for now)--------------------------------------------------------------
+https://api.illiteracy22.hasura-app.io/ML_Analysis/Evaluation
+
+sample request
+{
+     "Type" value here based on the list above(Create a drop down for user that will be good)
+     "User_Name":"name of the user here",
+     "Medicine_Name":"name of the medicine here"
+
+}
+
+
+
+response structure
+
+{
+"allergy_percentage": allergy_percentage,
+"dosage_percentage": dosage_percentage,
+"Resistance_percentage": Resistance_percentage,
+"age_percentage": age_percentage,
+"Pregnancy_percentage": Pregnancy_percentage,
+"Disease_condition_percentage": Disease_condition_percentage,
+"aggerage_percentage":aggerage_percentage
+}
+
 
 **************Use Postman to test responses*****************
 

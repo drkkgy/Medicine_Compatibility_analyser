@@ -57,6 +57,10 @@ router.get('/download_user_details/:User_Name', (req,res,next)=>{
 )
 .then(function(result) {
   // process result
+  if(result == null)
+  {
+    res.json({"message":"This User does not exist"})
+  }
   res.json(result);
 })
     
