@@ -102,13 +102,21 @@ https://api.illiteracy22.hasura-app.io/ML_Analysis/Evaluation
 
 sample request
 {
-     "Type" value here based on the list above(Create a drop down for user that will be good)
+     "Type": value here based on the list above(Create a drop down for user that will be good)
      "User_Name":"name of the user here",
      "Medicine_Name":"name of the medicine here"
+     "Dosage": 200
 
 }
 
+example request 
 
+{
+   "Type": 3,
+   "User_Name":"ankit",
+   "Medicine_Name":"Betalock",
+   "Dosage": 200
+}
 
 response structure
 
